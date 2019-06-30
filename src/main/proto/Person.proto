@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package com.yzy.protobuf;
+
+option java_package = "com.yzy.proto";
+option java_outer_classname = "PersonProto";
+option java_multiple_files = true;
+
+service PersonService{
+
+    rpc GetRealNameByUsername(MyRequest) returns (MyResponse){}
+    rpc GetPersonByAge(PersonRequest) returns (stream PersonResponse){}
+    rpc GetPersonWapperByAges(stream PersonRequest) returns (PersonResponseList){}
+}
+
+message MyRequest{
+    string username = 1;
+}
+
+message MyResponse{
+    string realname = 2;
+}
+
+message PersonRequest{
+    int32 age = 1;
+}
+
+message PersonResponse{
+    string name = 1;
+    int32 age = 2;
+    string city = 3;
+}
+
+message PersonResponseList{
+    repeated PersonResponse personResponse = 1;
+}
