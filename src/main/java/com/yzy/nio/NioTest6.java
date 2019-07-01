@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 /**
  * @author yzy
  * @classname NioTest6
- * @description TODO
+ * @description bytebuffer slice
  * @create 2019-07-01 15:40
  */
 public class NioTest6 {

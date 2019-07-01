@@ -11,7 +11,7 @@ import java.nio.channels.FileChannel;
 /**
  * @author yzy
  * @classname NioTest2
- * @description TODO
+ * @description ByteBuffer read-write
  * @create 2019-07-01 13:44
  */
 public class NioTest2 {

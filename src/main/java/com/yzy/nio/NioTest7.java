@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 /**
  * @author yzy
  * @classname NioTest7
- * @description TODO
+ * @description ByteBufferReadOnly
  * @create 2019-07-01 15:56
  */
 public class NioTest7 {

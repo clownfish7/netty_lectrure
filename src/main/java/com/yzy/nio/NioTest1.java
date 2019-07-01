@@ -6,7 +6,7 @@ import java.security.SecureRandom;
 /**
  * @author yzy
  * @classname NioTest1
- * @description TODO
+ * @description IntBuffer
  * @create 2019-07-01 13:07
  */
 public class NioTest1 {
