@@ -11,6 +11,7 @@ import java.util.Iterator;
  * @author You
  * @create 2019-06-30 20:02
  */
+@SuppressWarnings("all")
 public class GrpcClient {
     public static void main(String[] args) throws InterruptedException {
         ManagedChannel managedChannel = ManagedChannelBuilder.forAddress("localhost", 8899).usePlaintext(true).build();
@@ -62,5 +63,33 @@ public class GrpcClient {
         personRequestStreamObserver.onCompleted();
 
         Thread.sleep(50000);
+
+        System.out.println("--------------------------------------------");
+
+        StreamObserver<StreamResponse> streamResponseStreamObserver = new StreamObserver<StreamResponse>() {
+
+            @Override
+            public void onNext(StreamResponse value) {
+                System.out.println(value.getResponseInfo());
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                System.out.println(t.getMessage());
+            }
+
+            @Override
+            public void onCompleted() {
+                System.out.println("onCompleted!");
+            }
+        };
+
+        StreamObserver<StreamRequest> streamRequestStreamObserver = stub.biTalk(streamResponseStreamObserver);
+
+        for (int i = 0; i < 10; i++) {
+            streamRequestStreamObserver.onNext(StreamRequest.newBuilder().setRequestInfo(""+i+1).build());
+
+            Thread.sleep(1000);
+        }
     }
 }

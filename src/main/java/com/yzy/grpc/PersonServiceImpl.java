@@ -3,6 +3,8 @@ package com.yzy.grpc;
 import com.yzy.proto.*;
 import io.grpc.stub.StreamObserver;
 
+import java.util.stream.Stream;
+
 /**
  * @author You
  * @create 2019-06-30 17:36
@@ -49,6 +51,28 @@ public class PersonServiceImpl extends PersonServiceGrpc.PersonServiceImplBase {
                 PersonResponseList responseList = PersonResponseList.newBuilder().addPersonResponse(response1).addPersonResponse(response2).build();
 
                 responseObserver.onNext(responseList);
+                responseObserver.onCompleted();
+            }
+        };
+    }
+
+    @Override
+    public StreamObserver<StreamRequest> biTalk(StreamObserver<StreamResponse> responseObserver) {
+        return new StreamObserver<StreamRequest>() {
+            @Override
+            public void onNext(StreamRequest value) {
+                System.out.println(value.getRequestInfo());
+
+                responseObserver.onNext(StreamResponse.newBuilder().setResponseInfo("1").build());
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                System.out.println(t.getMessage());
+            }
+
+            @Override
+            public void onCompleted() {
                 responseObserver.onCompleted();
             }
         };

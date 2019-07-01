@@ -39,6 +39,16 @@ public final class PersonProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_yzy_protobuf_PersonResponseList_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_yzy_protobuf_StreamRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_yzy_protobuf_StreamRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_yzy_protobuf_StreamResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_yzy_protobuf_StreamResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -54,15 +64,19 @@ public final class PersonProto {
       "\001 \001(\005\"9\n\016PersonResponse\022\014\n\004name\030\001 \001(\t\022\013\n" +
       "\003age\030\002 \001(\005\022\014\n\004city\030\003 \001(\t\"N\n\022PersonRespon" +
       "seList\0228\n\016personResponse\030\001 \003(\0132 .com.yzy" +
-      ".protobuf.PersonResponse2\242\002\n\rPersonServi" +
+      ".protobuf.PersonResponse\"%\n\rStreamReques" +
+      "t\022\024\n\014request_info\030\001 \001(\t\"\'\n\016StreamRespons" +
+      "e\022\025\n\rresponse_info\030\001 \001(\t2\365\002\n\rPersonServi" +
       "ce\022T\n\025GetRealNameByUsername\022\033.com.yzy.pr" +
       "otobuf.MyRequest\032\034.com.yzy.protobuf.MyRe" +
       "sponse\"\000\022W\n\016GetPersonByAge\022\037.com.yzy.pro" +
       "tobuf.PersonRequest\032 .com.yzy.protobuf.P" +
       "ersonResponse\"\0000\001\022b\n\025GetPersonWapperByAg" +
       "es\022\037.com.yzy.protobuf.PersonRequest\032$.co" +
-      "m.yzy.protobuf.PersonResponseList\"\000(\001B\036\n" +
-      "\rcom.yzy.protoB\013PersonProtoP\001b\006proto3"
+      "m.yzy.protobuf.PersonResponseList\"\000(\001\022Q\n" +
+      "\006BiTalk\022\037.com.yzy.protobuf.StreamRequest" +
+      "\032 .com.yzy.protobuf.StreamResponse\"\000(\0010\001" +
+      "B\036\n\rcom.yzy.protoB\013PersonProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -106,6 +120,18 @@ public final class PersonProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_yzy_protobuf_PersonResponseList_descriptor,
         new String[] { "PersonResponse", });
+    internal_static_com_yzy_protobuf_StreamRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_yzy_protobuf_StreamRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_yzy_protobuf_StreamRequest_descriptor,
+        new String[] { "RequestInfo", });
+    internal_static_com_yzy_protobuf_StreamResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_com_yzy_protobuf_StreamResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_yzy_protobuf_StreamResponse_descriptor,
+        new String[] { "ResponseInfo", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
