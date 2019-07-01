@@ -10,6 +10,7 @@ import java.security.SecureRandom;
  * @create 2019-07-01 13:07
  */
 public class NioTest1 {
+
     public static void main(String[] args) {
         IntBuffer buffer = IntBuffer.allocate(10);
 
