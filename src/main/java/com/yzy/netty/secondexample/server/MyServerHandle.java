@@ -2,8 +2,12 @@ package com.yzy.netty.secondexample.server;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.epoll.EpollEventLoopGroup;
+import io.netty.util.concurrent.EventExecutorGroup;
 
 import java.util.UUID;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author You
@@ -17,6 +21,11 @@ public class MyServerHandle extends SimpleChannelInboundHandler<String> {
         System.out.println(msg);
 
         ctx.channel().writeAndFlush("from server" + UUID.randomUUID());
+
+//        ExecutorService executorService = Executors.newCachedThreadPool();
+//        executorService.submit(()->{
+//
+//        });
     }
 
     @Override
