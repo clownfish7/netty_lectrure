@@ -19,6 +19,8 @@ import io.netty.util.concurrent.EventExecutorGroup;
  */
 public class MyServerInitializer extends ChannelInitializer<SocketChannel> {
 
+    private EventExecutorGroup group = new DefaultEventExecutorGroup(1024);
+
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
@@ -26,9 +28,10 @@ public class MyServerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new LengthFieldPrepender(4));
         pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
         pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
-        pipeline.addLast(new MyServerHandle());
+//        pipeline.addLast(new MyServerHandle());
 
-//        EventExecutorGroup group = new DefaultEventExecutorGroup();
-//        pipeline.addLast(group, new MyServerHandle());
+        System.out.println(group);
+
+        pipeline.addLast(group, new MyServerHandle());
     }
 }
